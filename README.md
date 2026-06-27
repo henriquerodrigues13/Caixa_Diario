@@ -146,7 +146,7 @@ pip install -e ".[dev]"
 **4. Rode o FastAPI**
 
 ```bash
-python ./app/main.py
+fastapi dev ./app/main.py
 ```
 
 O servidor estará disponível em `http://localhost:8000`.
