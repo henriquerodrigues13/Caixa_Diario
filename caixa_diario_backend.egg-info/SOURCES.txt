@@ -1,6 +1,0 @@
-pyproject.toml
-caixa_diario_backend.egg-info/PKG-INFO
-caixa_diario_backend.egg-info/SOURCES.txt
-caixa_diario_backend.egg-info/dependency_links.txt
-caixa_diario_backend.egg-info/requires.txt
-caixa_diario_backend.egg-info/top_level.txt
