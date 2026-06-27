@@ -143,22 +143,10 @@ source .venv/bin/activate
 pip install -e ".[dev]"
 ```
 
-**4. Configure as variáveis de ambiente**
+**4. Rode o FastAPI**
 
 ```bash
-copy .env.example .env
-```
-
-Edite o `.env` se necessário:
-
-```
-ALLOWED_ORIGINS=http://localhost:5173
-```
-
-**5. Rode o servidor**
-
-```bash
-uvicorn app.main:app --reload
+fastapi dev ./app/main.py
 ```
 
 O servidor estará disponível em `http://localhost:8000`.
