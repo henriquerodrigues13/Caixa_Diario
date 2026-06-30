@@ -6,7 +6,7 @@ API REST para leitura e geração de planilhas de caixa diário financeiro. Stat
 
 ## Rotas
 
-### `POST /upload/xlsx_existente`
+### `POST /upload/dashboard`
 
 Recebe um arquivo `.xlsx` com lançamentos financeiros, valida a estrutura e retorna os dados calculados para o dashboard.
 
@@ -140,8 +140,7 @@ caixa-diario-backend/
 │   ├── main.py
 │   ├── routes/
 │   │   ├── upload.py
-│   │   ├── export.py
-│   │   └── template.py
+│   │   └── export.py
 │   ├── schemas/
 │   │   ├── lancamentos.py
 │   │   └── dashboard.py
