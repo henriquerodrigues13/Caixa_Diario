@@ -7,6 +7,7 @@ class TipoLancamento(str, Enum):
     despesa = "despesa"
 
 class ExcelParser(BaseModel):
+    model_config = {"extra": "forbid"}
     data: date
     descricao: str
     tipo: TipoLancamento
