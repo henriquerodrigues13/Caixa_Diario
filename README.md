@@ -82,29 +82,6 @@ Recebe um lançamento em JSON e retorna um arquivo `.xlsx` pronto para download.
 
 ---
 
-### `GET /template`
-
-Retorna a estrutura de colunas esperada pelo sistema. Usado pelo frontend para informar o usuário sobre o formato correto do arquivo.
-
-**Request**
-
-Sem parâmetros.
-
-**Response** `200 OK`
-
-```json
-{
-  "colunas": ["data", "descricao", "tipo", "valor"],
-  "tipos": {
-    "data": "DD-MM-YYYY",
-    "tipo": ["receita", "despesa"],
-    "valor": "número positivo"
-  }
-}
-```
-
----
-
 ## Como rodar localmente
 
 ### Pré-requisitos
