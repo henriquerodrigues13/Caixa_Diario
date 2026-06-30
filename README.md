@@ -19,7 +19,7 @@ O arquivo deve conter exatamente as seguintes colunas:
 
 | Coluna | Tipo | Observação |
 |---|---|---|
-| `data` | string | Formatos aceitos: `DD/MM/YYYY`, `DD-MM-YYYY` ou `YYYY-MM-DD` |
+| `data` | string | Formato aceito: `DD-MM-YYYY`  |
 | `descricao` | string | Texto livre |
 | `tipo` | string | Apenas `"receita"` ou `"despesa"` |
 | `valor` | float | Número positivo |
