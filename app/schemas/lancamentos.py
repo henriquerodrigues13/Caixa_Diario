@@ -24,3 +24,7 @@ class ExcelParser(BaseModel):
                 except ValueError:
                     continue
         return v
+
+    @field_serializer("data")
+    def serializar_data(self, v: date) -> str:
+        return v.strftime("%d-%m-%Y")
