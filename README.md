@@ -6,7 +6,7 @@ API REST para leitura e geração de planilhas de caixa diário financeiro. Stat
 
 ## Rotas
 
-### `POST /upload/xlsx_existente`
+### `POST /upload/dashboard`
 
 Recebe um arquivo `.xlsx` com lançamentos financeiros, valida a estrutura e retorna os dados calculados para o dashboard.
 
@@ -19,7 +19,7 @@ O arquivo deve conter exatamente as seguintes colunas:
 
 | Coluna | Tipo | Observação |
 |---|---|---|
-| `data` | string | Formatos aceitos: `DD/MM/YYYY`, `DD-MM-YYYY` ou `YYYY-MM-DD` |
+| `data` | string | Formato aceito: `DD-MM-YYYY`  |
 | `descricao` | string | Texto livre |
 | `tipo` | string | Apenas `"receita"` ou `"despesa"` |
 | `valor` | float | Número positivo |
@@ -82,29 +82,6 @@ Recebe um lançamento em JSON e retorna um arquivo `.xlsx` pronto para download.
 
 ---
 
-### `GET /template`
-
-Retorna a estrutura de colunas esperada pelo sistema. Usado pelo frontend para informar o usuário sobre o formato correto do arquivo.
-
-**Request**
-
-Sem parâmetros.
-
-**Response** `200 OK`
-
-```json
-{
-  "colunas": ["data", "descricao", "tipo", "valor"],
-  "tipos": {
-    "data": "DD-MM-YYYY",
-    "tipo": ["receita", "despesa"],
-    "valor": "número positivo"
-  }
-}
-```
-
----
-
 ## Como rodar localmente
 
 ### Pré-requisitos
@@ -163,8 +140,7 @@ caixa-diario-backend/
 │   ├── main.py
 │   ├── routes/
 │   │   ├── upload.py
-│   │   ├── export.py
-│   │   └── template.py
+│   │   └── export.py
 │   ├── schemas/
 │   │   ├── lancamentos.py
 │   │   └── dashboard.py
