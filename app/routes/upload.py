@@ -9,11 +9,13 @@ from app.schemas.dashboard import DashboardResponse
 
 router = APIRouter(tags=["converte de xlsx para json"])
 
-@router.post("/upload/xlsx_existente", response_model=List[ExcelParser] )
+@router.post("/upload/xlsx_existente")
 async def upload_xls_to_json(file: UploadFile = File(...)):
     if file.content_type != "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
         raise HTTPException(status_code=400, detail="Arquivo deve ser .xlsx")
     result = await excel_parser.parser(file)
+    if not result:
+        raise HTTPException(status_code=400, detail="O arquivo não contém nenhum lançamento")
     try:
         dados_validados = [lancamentos.ExcelParser(**row) for row in result]
         return [l.model_dump() for l in dados_validados]
@@ -25,6 +27,8 @@ async def upload_dashboard(file: UploadFile = File(...)):
     if file.content_type != "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
         raise HTTPException(status_code=400, detail="Arquivo deve ser .xlsx")
     result = await excel_parser.parser(file)
+    if not result:
+        raise HTTPException(status_code=400, detail="O arquivo não contém nenhum lançamento")
     try:
         dados_validados = [lancamentos.ExcelParser(**row) for row in result]
         return calcular_dashboard(dados_validados)
