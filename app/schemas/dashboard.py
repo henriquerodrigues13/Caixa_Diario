@@ -12,7 +12,9 @@ class SerieAcumulado(BaseModel):
 class DashboardResponse(BaseModel):
     total_receitas: float
     total_despesas: float
-    lucro_acumulado: float
-    margem_lucro: float
+    caixa : float
+    media_receita: float
+    media_despesa: float
+    media_lucro: float
     serie_diaria: list[SerieDiaria]
     serie_acumulado: list[SerieAcumulado]
