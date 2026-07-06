@@ -6,7 +6,7 @@ def calcular_dashboard(lancamentos: list[ExcelParser]) -> DashboardResponse:
     total_receitas = sum(l.valor for l in lancamentos if l.tipo == "receita")
     total_despesas = sum(l.valor for l in lancamentos if l.tipo == "despesa")
     lucro_acumulado = total_receitas - total_despesas
-    caixa = round((lucro_acumulado / total_receitas) * 100, 2) if total_receitas > 0 else 0.0
+    caixa = round((total_receitas - total_despesas), 2) if total_receitas > 0 else 0.0
 
     agrupado = defaultdict(lambda: {"receita": 0.0, "despesa": 0.0})
 
